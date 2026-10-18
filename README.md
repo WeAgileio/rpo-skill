@@ -6,13 +6,14 @@
 
 ## 已收錄技能
 
-目前收錄 **3 個技能**，後續可持續擴充。
+目前收錄 **4 個技能**，後續可持續擴充。
 
 | 技能 | 識別名稱 | 適用情境 | 主要產出 |
 |---|---|---|---|
 | [探索問題](skills/explore-problems/README.md) | `explore-problems` | 想法還很模糊、不確定問題出在哪，或需要先釐清真正要解決什麼 | 問題定義、事實與假設、待確認事項、下一步驗證方向 |
 | [Handoff（對話交接）](skills/handoff/SKILL.md) | `handoff` | 準備換到新對話或交給另一個 agent，需要保留接續工作的脈絡 | 對話交接文件、既有產出的引用、下一階段重點與建議使用的技能 |
 | [Market Segments（市場分群）](skills/market-segments/SKILL.md) | `market-segments` | 探索潛在市場、辨識目標客群，或評估產品適合服務哪些人 | 3–5 個客群的人口／企業特徵、JTBD、痛點、產品適配與競爭分析 |
+| [新產品驗證實驗](skills/brainstorm-experiments-new/SKILL.md) | `brainstorm-experiments-new` | 驗證新產品構想、測試市場需求，或設計低成本的前型實驗（pretotype） | XYZ 假設、2–3 個實驗方案，以及各實驗的衡量指標與成功門檻 |
 
 ## PO 工作情境與擴充方向
 
@@ -41,7 +42,7 @@ mkdir -p /path/to/your-project/.agents/skills
 cp -R skills/explore-problems /path/to/your-project/.agents/skills/
 ```
 
-若要安裝其他技能，將上述來源目錄換成 `skills/handoff` 或 `skills/market-segments`。
+若要安裝其他技能，將上述來源目錄換成 `skills/handoff`、`skills/market-segments` 或 `skills/brainstorm-experiments-new`。
 
 安裝後，技能檔案應位於：
 
@@ -83,6 +84,12 @@ Market Segments 可用來探索產品的潛在客群。提供產品描述，並�
 $market-segments 我們正在設計一款協助小型團隊管理產品需求的工具。請辨識 3–5 個潛在客群，分析各自的 JTBD、痛點與產品適配程度，並標示需要驗證的假設。
 ```
 
+新產品驗證實驗可將產品構想轉成可衡量的 XYZ 假設，並設計低成本的需求驗證方式：
+
+```text
+$brainstorm-experiments-new 我們想為小型團隊推出產品需求管理工具。請建立 XYZ 假設，設計 2–3 個低成本驗證實驗，列出衡量指標與成功門檻，並標示尚待驗證的假設。
+```
+
 個別技能的流程與範例，請參考該技能目錄內的說明。
 
 ## 儲存庫結構
@@ -102,7 +109,10 @@ rpo-skill/
     │   ├── SKILL.md
     │   └── agents/
     │       └── openai.yaml
-    └── market-segments/
+    ├── market-segments/
+    │   ├── SKILL.md
+    │   └── LICENSE
+    └── brainstorm-experiments-new/
         ├── SKILL.md
         └── LICENSE
 ```
@@ -123,3 +133,5 @@ rpo-skill/
 「Handoff」收錄自本專案的既有技能，保留原始內容與明確呼叫設定。
 
 「Market Segments」來自 Paweł Huryn 的 [PM Skills Marketplace](https://github.com/phuryn/pm-skills/tree/main/pm-market-research/skills/market-segments)，收錄本專案已安裝的 `pm-market-research` 2.1.0 版本，保留原始英文內容與參考連結。該技能採用 MIT 授權，授權與著作權聲明見 [skills/market-segments/LICENSE](skills/market-segments/LICENSE)。
+
+「新產品驗證實驗」來自 Paweł Huryn 的 [PM Skills Marketplace](https://github.com/phuryn/pm-skills/tree/main/pm-product-discovery/skills/brainstorm-experiments-new)，收錄本專案已安裝的 `brainstorm-experiments-new`，保留原始英文內容與參考連結。該技能採用 MIT 授權，授權與著作權聲明見 [skills/brainstorm-experiments-new/LICENSE](skills/brainstorm-experiments-new/LICENSE)。
