@@ -6,7 +6,7 @@
 
 ## 已收錄技能
 
-目前收錄 **6 個技能**，後續可持續擴充。
+目前收錄 **12 個技能**，後續可持續擴充。
 
 | 技能 | 識別名稱 | 適用情境 | 主要產出 |
 |---|---|---|---|
@@ -16,6 +16,12 @@
 | [Market Segments（市場分群）](skills/market-segments/SKILL.md) | `market-segments` | 探索潛在市場、辨識目標客群，或評估產品適合服務哪些人 | 3–5 個客群的人口／企業特徵、JTBD、痛點、產品適配與競爭分析 |
 | [新產品驗證實驗](skills/brainstorm-experiments-new/SKILL.md) | `brainstorm-experiments-new` | 驗證新產品構想、測試市場需求，或設計低成本的前型實驗（pretotype） | XYZ 假設、2–3 個實驗方案，以及各實驗的衡量指標與成功門檻 |
 | [價值主張](skills/value-proposition/SKILL.md) | `value-proposition` | 釐清產品定位、目標顧客需求與替代方案的差異 | 七行價值主張及必要的假設與待驗證事項 |
+| [產品目標](skills/product-goals/SKILL.md) | `product-goals` | 制定或檢視可衡量的產品目標 | 以 What、Why、KPI、ROI、Done by 整理的候選目標 |
+| [同步產品脈絡](skills/stp/SKILL.md) | `stp` | 將目前對話中的價值主張、產品目標與市場客群整理至專案背景 | `RPO-CONTEXT.md` 中有狀態與來源的產品脈絡 |
+| [PBI 模板](skills/pbi-template/SKILL.md) | `pbi-template` | 將需求整理為產品待辦項目與故事 | User Story、Job Story 或 System Story，以及驗收標準 |
+| [需求拆解](skills/split/SKILL.md) | `split` | 將需求、功能或 Epic 拆成可逐步交付的工作項目 | Backlog 拆解、驗收條件、依賴與交付建議 |
+| [需求排序](skills/priority/SKILL.md) | `priority` | 依產品價值與目標排序需求或 Product Backlog | 具體排序、理由、取捨及待驗證假設 |
+| [驗收標準](skills/ac/SKILL.md) | `ac` | 撰寫、補充或檢視需求的驗收標準 | 以 Given–When–Then 表達的可驗證情境 |
 
 ## PO 工作情境與擴充方向
 
@@ -44,7 +50,7 @@ mkdir -p /path/to/your-project/.agents/skills
 cp -R skills/explore-problems /path/to/your-project/.agents/skills/
 ```
 
-若要安裝其他技能，將上述來源目錄換成 `skills/initial-problem-discovery`、`skills/handoff`、`skills/market-segments`、`skills/brainstorm-experiments-new` 或 `skills/value-proposition`。
+若要安裝其他技能，將上述來源目錄換成「已收錄技能」表格中對應的 `skills/<技能識別名稱>`。
 
 安裝後，技能檔案應位於：
 
@@ -62,7 +68,7 @@ cp -R skills/explore-problems /path/to/your-project/.agents/skills/
 
 ## 專案基本設定
 
-各技能開始工作時會讀取**目前工作專案根目錄**的 `RPO-CONTEXT.md`，作為共用背景；這個位置是使用技能的專案，而不是技能的安裝目錄。沒有該檔案或無法讀取時，技能仍會依原流程執行。當次使用者指示優先；重要資訊若互相衝突，技能會指出並釐清。
+除 `stp` 外，各技能開始工作時會讀取**目前工作專案根目錄**的 `RPO-CONTEXT.md`，作為共用背景；這個位置是使用技能的專案，而不是技能的安裝目錄。沒有該檔案或無法讀取時，技能仍會依原流程執行。當次使用者指示優先；重要資訊若互相衝突，技能會指出並釐清。
 
 可在使用技能的專案根目錄建立 `RPO-CONTEXT.md`，例如：
 
@@ -76,7 +82,7 @@ cp -R skills/explore-problems /path/to/your-project/.agents/skills/
 - 輸出偏好：繁體中文，精簡條列。
 ```
 
-內容可依專案調整，並標示假設及待驗證資訊；避免放入密碼、API 金鑰等機密。技能只會取用與當次任務相關的內容。新增技能時，也應在其 `SKILL.md` 加入相同的讀取規則，讓單獨安裝時仍可使用。
+內容可依專案調整，並標示假設及待驗證資訊；避免放入密碼、API 金鑰等機密。技能只會取用與當次任務相關的內容。`stp` 則會讀取並更新此檔中的價值主張、產品目標與市場客群；如果檔案含有其他內容，會先詢問如何處理，避免刪除資料。新增讀取專案背景的技能時，應在其 `SKILL.md` 加入相同的讀取規則，讓單獨安裝時仍可使用。
 
 ## 使用
 
@@ -122,6 +128,19 @@ $brainstorm-experiments-new 我們想為小型團隊推出產品需求管理工�
 $value-proposition 為協助小型團隊管理產品需求的工具撰寫價值主張，請先幫我釐清目標顧客與替代方案。
 ```
 
+其他技能可依工作階段使用，例如：
+
+```text
+$product-goals 根據目前產品背景，提出可衡量的候選產品目標。
+$stp 將這段對話中的價值主張、產品目標與市場客群同步到專案背景。
+$pbi-template 將這項需求整理成適合的故事與驗收標準。
+$split 將這個功能拆成可逐步交付的 backlog 項目。
+$priority 根據產品價值與目標，協助排序這些 backlog 項目。
+$ac 為這個 user story 撰寫可驗證的驗收標準。
+```
+
+`priority` 在產出最終排序前會確認價值聲明與產品目標；`pbi-template` 的確認流程及其他技能的詳細使用方式，請參考各自的技能說明。
+
 個別技能的流程與範例，請參考該技能目錄內的說明。
 
 ## 儲存庫結構
@@ -130,28 +149,21 @@ $value-proposition 為協助小型團隊管理產品需求的工具撰寫價值�
 rpo-skill/
 ├── README.md
 └── skills/
-    ├── explore-problems/
-    │   ├── SKILL.md
-    │   ├── README.md
-    │   ├── agents/
-    │   │   └── openai.yaml
-    │   ├── grill-boss-icon.png
-    │   └── social-preview.png
-    ├── initial-problem-discovery/
-    │   └── SKILL.md
-    ├── handoff/
-    │   ├── SKILL.md
-    │   └── agents/
-    │       └── openai.yaml
-    ├── market-segments/
-    │   ├── SKILL.md
-    │   └── LICENSE
-    ├── brainstorm-experiments-new/
-    │   ├── SKILL.md
-    │   └── LICENSE
-    └── value-proposition/
-        └── SKILL.md
+    ├── ac/SKILL.md
+    ├── brainstorm-experiments-new/  # 含 LICENSE
+    ├── explore-problems/           # 含 README、agents 與圖片
+    ├── handoff/                    # 含 agents
+    ├── initial-problem-discovery/SKILL.md
+    ├── market-segments/            # 含 LICENSE
+    ├── pbi-template/SKILL.md
+    ├── priority/SKILL.md
+    ├── product-goals/SKILL.md
+    ├── split/SKILL.md
+    ├── stp/SKILL.md
+    └── value-proposition/SKILL.md
 ```
+
+每個技能目錄皆包含 `SKILL.md`。
 
 ## 新增技能
 
