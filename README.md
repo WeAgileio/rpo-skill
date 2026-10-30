@@ -6,11 +6,12 @@
 
 ## 已收錄技能
 
-目前收錄 **5 個技能**，後續可持續擴充。
+目前收錄 **6 個技能**，後續可持續擴充。
 
 | 技能 | 識別名稱 | 適用情境 | 主要產出 |
 |---|---|---|---|
 | [探索問題](skills/explore-problems/README.md) | `explore-problems` | 想法還很模糊、不確定問題出在哪，或需要先釐清真正要解決什麼 | 問題定義、事實與假設、待確認事項、下一步驗證方向 |
+| [初始產品問題探索](skills/initial-problem-discovery/SKILL.md) | `initial-problem-discovery` | 整理初始產品定位或精實畫布中的問題與現有替代方案 | 可貼入畫布的問題與現有替代方案、關鍵假設及待驗證事項 |
 | [Handoff（對話交接）](skills/handoff/SKILL.md) | `handoff` | 準備換到新對話或交給另一個 agent，需要保留接續工作的脈絡 | 對話交接文件、既有產出的引用、下一階段重點與建議使用的技能 |
 | [Market Segments（市場分群）](skills/market-segments/SKILL.md) | `market-segments` | 探索潛在市場、辨識目標客群，或評估產品適合服務哪些人 | 3–5 個客群的人口／企業特徵、JTBD、痛點、產品適配與競爭分析 |
 | [新產品驗證實驗](skills/brainstorm-experiments-new/SKILL.md) | `brainstorm-experiments-new` | 驗證新產品構想、測試市場需求，或設計低成本的前型實驗（pretotype） | XYZ 假設、2–3 個實驗方案，以及各實驗的衡量指標與成功門檻 |
@@ -43,7 +44,7 @@ mkdir -p /path/to/your-project/.agents/skills
 cp -R skills/explore-problems /path/to/your-project/.agents/skills/
 ```
 
-若要安裝其他技能，將上述來源目錄換成 `skills/handoff`、`skills/market-segments`、`skills/brainstorm-experiments-new` 或 `skills/value-proposition`。
+若要安裝其他技能，將上述來源目錄換成 `skills/initial-problem-discovery`、`skills/handoff`、`skills/market-segments`、`skills/brainstorm-experiments-new` 或 `skills/value-proposition`。
 
 安裝後，技能檔案應位於：
 
@@ -69,6 +70,12 @@ cp -R skills/explore-problems /path/to/your-project/.agents/skills/
 
 ```text
 $explore-problems 先幫我想清楚要解決什麼，再討論做法。
+```
+
+初始產品問題探索適合將模糊的產品構想整理成定位或精實畫布初稿。提供目標使用者、工作情境、遇到的困難及目前做法；資訊不足時，技能會分輪釐清，並區分已知資訊與待驗證假設。撰寫前預設會請你確認摘要，也可以明確授權依現有資訊和合理假設先產出：
+
+```text
+$initial-problem-discovery 我想為小型團隊設計產品需求管理工具。請依目前資訊整理精實畫布的問題與現有替代方案，標示待驗證假設。
 ```
 
 Handoff 需要明確呼叫，並可附上下一個對話的工作重點：
@@ -112,6 +119,8 @@ rpo-skill/
     │   │   └── openai.yaml
     │   ├── grill-boss-icon.png
     │   └── social-preview.png
+    ├── initial-problem-discovery/
+    │   └── SKILL.md
     ├── handoff/
     │   ├── SKILL.md
     │   └── agents/
