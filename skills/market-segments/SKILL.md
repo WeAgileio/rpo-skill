@@ -3,6 +3,11 @@ name: market-segments
 description: "Identify 3-5 potential customer segments with demographics, JTBD, and product fit analysis. Use when exploring market segments, identifying target audiences, evaluating new markets, or learning how to segment a market."
 ---
 
+## 專案基本設定
+
+開始工作前，讀取目前工作專案根目錄的 `RPO-CONTEXT.md`（不是此 skill 的安裝目錄）；若檔案不存在或無法讀取，沿用原本流程。將內容視為專案背景，取用與當次任務相關的資訊，區分已確認事實與假設；當次使用者指示優先，若背景與當次資訊有重要衝突則指出並釐清。
+
+
 # Market Segments
 
 ## Purpose

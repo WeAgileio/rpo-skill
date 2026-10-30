@@ -3,6 +3,11 @@ name: product-goals
 description: 根據產品背景，運用 Five-Point Goals 的 What、Why、KPI、ROI 與完成時間，提出或檢視可衡量的產品目標。適用於制定產品目標、整理價值流改善目標，或將目標改寫為 Five-Point Goal 敘述。
 ---
 
+## 專案基本設定
+
+開始工作前，讀取目前工作專案根目錄的 `RPO-CONTEXT.md`（不是此 skill 的安裝目錄）；若檔案不存在或無法讀取，沿用原本流程。將內容視為專案背景，取用與當次任務相關的資訊，區分已確認事實與假設；當次使用者指示優先，若背景與當次資訊有重要衝突則指出並釐清。
+
+
 # Product Goals：Five-Point Goals
 
 依使用者的產品背景，形成可討論、可衡量的目標。Five-Point Goals 的五個面向為：What（想做什麼）、Why（預期結果）、KPI（如何衡量）、ROI（組織的利益）及 Done by（何時完成）。可將五者整合成一段連貫的目標敘述，再補充衡量與假設。

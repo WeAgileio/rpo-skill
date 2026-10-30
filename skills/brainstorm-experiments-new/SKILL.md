@@ -3,6 +3,11 @@ name: brainstorm-experiments-new
 description: "Design lean startup experiments (pretotypes) for a new product. Creates XYZ hypotheses and suggests low-effort validation methods like landing pages, explainer videos, and pre-orders. Use when validating a new product idea, creating pretotypes, or testing market demand."
 ---
 
+## 專案基本設定
+
+開始工作前，讀取目前工作專案根目錄的 `RPO-CONTEXT.md`（不是此 skill 的安裝目錄）；若檔案不存在或無法讀取，沿用原本流程。將內容視為專案背景，取用與當次任務相關的資訊，區分已確認事實與假設；當次使用者指示優先，若背景與當次資訊有重要衝突則指出並釐清。
+
+
 ## Design Lean Startup Experiments (New Product)
 
 Create XYZ hypotheses and design pretotype experiments to validate a new product concept with minimal effort.

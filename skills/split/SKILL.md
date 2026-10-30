@@ -3,6 +3,11 @@ name: split
 description: 運用 Scrum Product Backlog refinement 與 Agile story splitting，將產品需求、功能或 Epic 拆成可討論、排序與驗收的工作項目；適用於需求拆解、拆 user stories 或整理 backlog。
 ---
 
+## 專案基本設定
+
+開始工作前，讀取目前工作專案根目錄的 `RPO-CONTEXT.md`（不是此 skill 的安裝目錄）；若檔案不存在或無法讀取，沿用原本流程。將內容視為專案背景，取用與當次任務相關的資訊，區分已確認事實與假設；當次使用者指示優先，若背景與當次資訊有重要衝突則指出並釐清。
+
+
 # Split：需求拆解
 
 將使用者提供的需求轉為可逐步交付及驗證的 backlog。預設以繁體中文回答，沿用使用者指定的語言、格式與既有術語。
