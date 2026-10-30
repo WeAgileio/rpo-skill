@@ -6,7 +6,7 @@
 
 ## 已收錄技能
 
-目前收錄 **4 個技能**，後續可持續擴充。
+目前收錄 **5 個技能**，後續可持續擴充。
 
 | 技能 | 識別名稱 | 適用情境 | 主要產出 |
 |---|---|---|---|
@@ -14,6 +14,7 @@
 | [Handoff（對話交接）](skills/handoff/SKILL.md) | `handoff` | 準備換到新對話或交給另一個 agent，需要保留接續工作的脈絡 | 對話交接文件、既有產出的引用、下一階段重點與建議使用的技能 |
 | [Market Segments（市場分群）](skills/market-segments/SKILL.md) | `market-segments` | 探索潛在市場、辨識目標客群，或評估產品適合服務哪些人 | 3–5 個客群的人口／企業特徵、JTBD、痛點、產品適配與競爭分析 |
 | [新產品驗證實驗](skills/brainstorm-experiments-new/SKILL.md) | `brainstorm-experiments-new` | 驗證新產品構想、測試市場需求，或設計低成本的前型實驗（pretotype） | XYZ 假設、2–3 個實驗方案，以及各實驗的衡量指標與成功門檻 |
+| [價值主張](skills/value-proposition/SKILL.md) | `value-proposition` | 釐清產品定位、目標顧客需求與替代方案的差異 | 七行價值主張及必要的假設與待驗證事項 |
 
 ## PO 工作情境與擴充方向
 
@@ -42,7 +43,7 @@ mkdir -p /path/to/your-project/.agents/skills
 cp -R skills/explore-problems /path/to/your-project/.agents/skills/
 ```
 
-若要安裝其他技能，將上述來源目錄換成 `skills/handoff`、`skills/market-segments` 或 `skills/brainstorm-experiments-new`。
+若要安裝其他技能，將上述來源目錄換成 `skills/handoff`、`skills/market-segments`、`skills/brainstorm-experiments-new` 或 `skills/value-proposition`。
 
 安裝後，技能檔案應位於：
 
@@ -90,6 +91,12 @@ $market-segments 我們正在設計一款協助小型團隊管理產品需求的
 $brainstorm-experiments-new 我們想為小型團隊推出產品需求管理工具。請建立 XYZ 假設，設計 2–3 個低成本驗證實驗，列出衡量指標與成功門檻，並標示尚待驗證的假設。
 ```
 
+價值主張技能協助釐清產品、目標顧客及替代方案，再撰寫七行定位。預設會在撰寫前確認摘要；也可明確要求跳過確認並標示假設：
+
+```text
+$value-proposition 為協助小型團隊管理產品需求的工具撰寫價值主張，請先幫我釐清目標顧客與替代方案。
+```
+
 個別技能的流程與範例，請參考該技能目錄內的說明。
 
 ## 儲存庫結構
@@ -112,9 +119,11 @@ rpo-skill/
     ├── market-segments/
     │   ├── SKILL.md
     │   └── LICENSE
-    └── brainstorm-experiments-new/
-        ├── SKILL.md
-        └── LICENSE
+    ├── brainstorm-experiments-new/
+    │   ├── SKILL.md
+    │   └── LICENSE
+    └── value-proposition/
+        └── SKILL.md
 ```
 
 ## 新增技能
@@ -135,3 +144,5 @@ rpo-skill/
 「Market Segments」來自 Paweł Huryn 的 [PM Skills Marketplace](https://github.com/phuryn/pm-skills/tree/main/pm-market-research/skills/market-segments)，收錄本專案已安裝的 `pm-market-research` 2.1.0 版本，保留原始英文內容與參考連結。該技能採用 MIT 授權，授權與著作權聲明見 [skills/market-segments/LICENSE](skills/market-segments/LICENSE)。
 
 「新產品驗證實驗」來自 Paweł Huryn 的 [PM Skills Marketplace](https://github.com/phuryn/pm-skills/tree/main/pm-product-discovery/skills/brainstorm-experiments-new)，收錄本專案已安裝的 `brainstorm-experiments-new`，保留原始英文內容與參考連結。該技能採用 MIT 授權，授權與著作權聲明見 [skills/brainstorm-experiments-new/LICENSE](skills/brainstorm-experiments-new/LICENSE)。
+
+「價值主張」依 Geoffrey A. Moore 的定位方法整理，七行格式及參考資料見 [技能說明](skills/value-proposition/SKILL.md)。
