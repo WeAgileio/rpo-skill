@@ -6,7 +6,7 @@
 
 ## 已收錄技能
 
-目前收錄 **12 個技能**，後續可持續擴充。
+目前收錄 **13 個技能**，後續可持續擴充。
 
 | 技能 | 識別名稱 | 適用情境 | 主要產出 |
 |---|---|---|---|
@@ -19,6 +19,7 @@
 | [產品目標](skills/product-goals/SKILL.md) | `product-goals` | 制定或檢視可衡量的產品目標 | 以 What、Why、KPI、ROI、Done by 整理的候選目標 |
 | [同步產品脈絡](skills/stp/SKILL.md) | `stp` | 將目前對話中的價值主張、產品目標與市場客群整理至專案背景 | `RPO-CONTEXT.md` 中有狀態與來源的產品脈絡 |
 | [PBI 模板](skills/pbi-template/SKILL.md) | `pbi-template` | 將需求整理為產品待辦項目與故事 | User Story、Job Story 或 System Story，以及驗收標準 |
+| [需求釐清與分析](skills/requirement-refinement/SKILL.md) | `requirement-refinement` | 需求有歧義、需要確認問題與目標，或評估可行方向 | 確認後的需求理解、分析、建議方向與待驗證事項 |
 | [需求拆解](skills/split/SKILL.md) | `split` | 將需求、功能或 Epic 拆成可逐步交付的工作項目 | Backlog 拆解、驗收條件、依賴與交付建議 |
 | [需求排序](skills/priority/SKILL.md) | `priority` | 依產品價值與目標排序需求或 Product Backlog | 具體排序、理由、取捨及待驗證假設 |
 | [驗收標準](skills/ac/SKILL.md) | `ac` | 撰寫、補充或檢視需求的驗收標準 | 以 Given–When–Then 表達的可驗證情境 |
@@ -134,12 +135,13 @@ $value-proposition 為協助小型團隊管理產品需求的工具撰寫價值�
 $product-goals 根據目前產品背景，提出可衡量的候選產品目標。
 $stp 將這段對話中的價值主張、產品目標與市場客群同步到專案背景。
 $pbi-template 將這項需求整理成適合的故事與驗收標準。
+$requirement-refinement 先幫我釐清這項需求的問題、目標與限制，確認後再提出建議。
 $split 將這個功能拆成可逐步交付的 backlog 項目。
 $priority 根據產品價值與目標，協助排序這些 backlog 項目。
 $ac 為這個 user story 撰寫可驗證的驗收標準。
 ```
 
-`priority` 在產出最終排序前會確認價值聲明與產品目標；`pbi-template` 的確認流程及其他技能的詳細使用方式，請參考各自的技能說明。
+`requirement-refinement` 在提出具體建議前會請使用者確認需求理解與評估依據；`priority` 在產出最終排序前會確認價值聲明與產品目標。`pbi-template` 的確認流程及其他技能的詳細使用方式，請參考各自的技能說明。
 
 個別技能的流程與範例，請參考該技能目錄內的說明。
 
@@ -158,6 +160,7 @@ rpo-skill/
     ├── pbi-template/SKILL.md
     ├── priority/SKILL.md
     ├── product-goals/SKILL.md
+    ├── requirement-refinement/SKILL.md
     ├── split/SKILL.md
     ├── stp/SKILL.md
     └── value-proposition/SKILL.md
@@ -183,5 +186,7 @@ rpo-skill/
 「Market Segments」來自 Paweł Huryn 的 [PM Skills Marketplace](https://github.com/phuryn/pm-skills/tree/main/pm-market-research/skills/market-segments)，收錄本專案已安裝的 `pm-market-research` 2.1.0 版本，保留原始英文內容與參考連結。該技能採用 MIT 授權，授權與著作權聲明見 [skills/market-segments/LICENSE](skills/market-segments/LICENSE)。
 
 「新產品驗證實驗」來自 Paweł Huryn 的 [PM Skills Marketplace](https://github.com/phuryn/pm-skills/tree/main/pm-product-discovery/skills/brainstorm-experiments-new)，收錄本專案已安裝的 `brainstorm-experiments-new`，保留原始英文內容與參考連結。該技能採用 MIT 授權，授權與著作權聲明見 [skills/brainstorm-experiments-new/LICENSE](skills/brainstorm-experiments-new/LICENSE)。
+
+「需求釐清與分析」的評估維度參考 Paweł Huryn 的 [prioritize-features skill](https://github.com/phuryn/pm-skills/blob/main/pm-product-discovery/skills/prioritize-features/SKILL.md)，並依本專案需求確認與釐清流程改寫。
 
 「價值主張」依 Geoffrey A. Moore 的定位方法整理，七行格式及參考資料見 [技能說明](skills/value-proposition/SKILL.md)。
